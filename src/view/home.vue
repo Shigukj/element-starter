@@ -1,22 +1,22 @@
 <template>
     <el-container>
        <vNavbar></vNavbar>
-        <el-main>
-           
+        
+            <Banner></Banner>
             <div>
                 <el-button @click="startHacking">Start</el-button>
             </div>
-        </el-main>
         <el-footer>
         </el-footer>
     </el-container>
 </template>
 <script>
-import vNavbar from '../components/Navbar.vue'
-
+import vNavbar from '../components/navbar'
+import Banner from '../components/banner'
+ 
 export default {
     components: {
-    vNavbar
+    vNavbar,Banner
   },
   methods: {
     startHacking () {

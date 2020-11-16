@@ -9,11 +9,17 @@ Vue.use(ElementUI);
 Vue.use(Router);
 
 const router = new Router({
+    // mode: 'history',
     routes:[
         {
             path:'/home',
             name:'index',
             component:home
+        },
+        {
+            path: '/',
+            name: 'index',
+            component: home
         },
         {   //路由重定向
             path:'*',
