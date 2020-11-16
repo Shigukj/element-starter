@@ -1,7 +1,8 @@
 <template>
     <el-main style="padding-top:36px;">
         <el-container class="banner-box">
-            <el-aside width="216px">
+            <el-aside width="216px" class="banner-box-left">
+                
             </el-aside>
             <el-main class="banner-box-right">
                 <el-carousel height="382px">
@@ -21,9 +22,7 @@ export default {
         }
     },
      methods: {
-            handleSelect(key, keyPath){
-                    console.log(key, keyPath);
-                }
+      
     }
   
 }
@@ -42,7 +41,11 @@ export default {
 .banner-box-right{
     padding: 0;
 }
-.el-header{
-    padding: 0;
+.banner-box-left{
+    background: #2B333B;
+    color: #C0C4CC;
+}
+.el-menu{
+    border-right: 0;
 }
 </style>

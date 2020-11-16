@@ -1,6 +1,6 @@
 <template>
-     <el-header>
-            <el-menu default-active="home" class="el-menu-demo" mode="horizontal" @select="handleSelect" >
+     <el-header height="70">
+            <el-menu default-active="home" class="el-menu-demo" mode="horizontal" @select="handleSelect" router >
                         <el-menu-item>
                            <el-image style="height: 40px;width: 40px;" :src="logo" fit="fit"></el-image>
                         </el-menu-item>
@@ -38,6 +38,10 @@ export default {
 }
 </script>
 <style  scoped>
+.el-menu--horizontal>.el-menu-item{
+    height: 70px;
+    line-height: 70px;
+}
 .fr{
     float: right;
 }

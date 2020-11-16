@@ -1,6 +1,5 @@
 <template>
     <el-container>
-            <Banner></Banner>
         <el-footer>
         </el-footer>
     </el-container>
