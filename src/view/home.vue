@@ -1,5 +1,6 @@
 <template>
     <el-container id="home">
+        <el-main class="container-top-box">
         <Banner></Banner>
         <el-main class="container-types container-recommend">
                  <h5 class="types-title">
