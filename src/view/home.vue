@@ -11,11 +11,11 @@
                 </h5>
                 <el-row :gutter="20">
                 <el-col :span="6" v-for="(item,index) in recommend_items" :key="item.title">
-                    <div  class="item">
+                    <el-link  class="item" :underline="false" :href="item.openurl">
                         <i :class="`i-${index}`"></i>
                         <p class="tit">{{item.title}}</p>
                         <p class="desc">{{item.desc}}</p>
-                    </div>
+                    </el-link>
                 </el-col>
                 </el-row>
             </div>
@@ -37,21 +37,13 @@
                 </div>
             </div>
             <div class="container-main-box">
-                <div class="container-types ">
+                <div class="container-types container-newclass">
                     <h5 class="types-title">
                         <span>最新课程</span>
                     </h5>
                     <el-row :gutter="20">
                     <el-col :span="6" v-for="item in newclass_list" :key="item.title" style=" margin-bottom: 20px;">
-                        <el-card :body-style="{ padding: '0px' }">
-                            <img :src="item.imgurl" class="image">
-                            <div style="padding: 14px;">
-                                <span>{{item.title}}</span>
-                                <div class="bottom clearfix">
-                                <time class="time">{{ item.desc }}</time>
-                                </div>
-                            </div>
-                        </el-card>
+                        <classitem :item='item'></classitem>
                     </el-col>
                     </el-row>
                 </div>
@@ -59,7 +51,9 @@
         </el-main>
 </template>
 <script>
-import Banner from '../components/banner'
+// import Banner from '../components/banner'
+import Banner from '../components/onlybanner'
+import classitem from '../components/classitem'
  
 export default {
     data(){
@@ -67,19 +61,23 @@ export default {
             recommend_items:[   //推荐课程
                 {
                     title:"Java工程师体系课",
-                    desc:"从0到胜任大厂Java岗位"
+                    desc:"从0到胜任大厂Java岗位",
+                    openurl:"http://www.baidu.com",
                 },
                 {
                     title:"Java工程师体系课1",
-                    desc:"从0到胜任大厂Java岗位"
+                    desc:"从0到胜任大厂Java岗位",
+                    openurl:"http://www.baidu.com",
                 },
                   {
                     title:"Java工程师体系课2",
-                    desc:"从0到胜任大厂Java岗位"
+                    desc:"从0到胜任大厂Java岗位",
+                    openurl:"http://www.baidu.com",
                 },
                   {
                     title:"Java工程师体系课3",
-                    desc:"从0到胜任大厂Java岗位"
+                    desc:"从0到胜任大厂Java岗位",
+                    openurl:"http://www.baidu.com",
                 },
             ],
             promote_items:[     //提升课程
@@ -107,7 +105,10 @@ export default {
                     usernum:"25",
                     lontime:"2",
                     desc:"覆盖Java程序员不同成长阶段的核心问题与最佳解决方案",
-                    tag:["vue.js","jave"]
+                    tags:["vue.js","jave"],
+                    hot:1,
+                    recommend:0,
+                    openurl:"http://www.baidu.com"
                 },
                 {
                     imgurl:"https://img3.mukewang.com/szimg/5f65f20c08d369bb06000338-360-202.jpg",
@@ -115,7 +116,10 @@ export default {
                     usernum:"25",
                     lontime:"2",
                     desc:"覆盖Java程序员不同成长阶段的核心问题与最佳解决方案",
-                    tag:["vue.js","jave"]
+                    tags:["vue.js","jave"],
+                    hot:0,
+                    recommend:1,
+                    openurl:"http://www.baidu.com"
                 },
                 {
                     imgurl:"https://img3.mukewang.com/szimg/5f65f20c08d369bb06000338-360-202.jpg",
@@ -123,7 +127,10 @@ export default {
                     usernum:"25",
                     lontime:"2",
                     desc:"覆盖Java程序员不同成长阶段的核心问题与最佳解决方案",
-                    tag:["vue.js","jave"]
+                    tags:["vue.js","jave"],
+                    hot:1,
+                    recommend:1,
+                    openurl:"http://www.baidu.com"
                 },
                 {
                     imgurl:"https://img3.mukewang.com/szimg/5f65f20c08d369bb06000338-360-202.jpg",
@@ -131,7 +138,10 @@ export default {
                     usernum:"25",
                     lontime:"2",
                     desc:"覆盖Java程序员不同成长阶段的核心问题与最佳解决方案",
-                    tag:["vue.js","jave"]
+                    tags:["vue.js","jave"],
+                    hot:1,
+                    recommend:1,
+                    openurl:"http://www.baidu.com"
                 },
                 {
                     imgurl:"https://img3.mukewang.com/szimg/5f65f20c08d369bb06000338-360-202.jpg",
@@ -139,7 +149,10 @@ export default {
                     usernum:"25",
                     lontime:"2",
                     desc:"覆盖Java程序员不同成长阶段的核心问题与最佳解决方案",
-                    tag:["vue.js","jave"]
+                    tags:["vue.js","jave"],
+                    hot:1,
+                    recommend:1,
+                    openurl:"http://www.baidu.com"
                 },
                 {
                     imgurl:"https://img3.mukewang.com/szimg/5f65f20c08d369bb06000338-360-202.jpg",
@@ -147,13 +160,39 @@ export default {
                     usernum:"25",
                     lontime:"2",
                     desc:"覆盖Java程序员不同成长阶段的核心问题与最佳解决方案",
-                    tag:["vue.js","jave"]
+                    tags:["vue.js","jave"],
+                    hot:0,
+                    recommend:0,
+                    openurl:"http://www.baidu.com"
                 },
+                {
+                    imgurl:"https://img3.mukewang.com/szimg/5f65f20c08d369bb06000338-360-202.jpg",
+                    title:"Vue3.0(正式版) + TS 仿知乎专栏企业级项目",
+                    usernum:"25",
+                    lontime:"2",
+                    desc:"覆盖Java程序员不同成长阶段的核心问题与最佳解决方案",
+                    tags:["vue.js","jave"],
+                    hot:0,
+                    recommend:0,
+                    openurl:"http://www.baidu.com"
+                },
+                {
+                    imgurl:"https://img3.mukewang.com/szimg/5f65f20c08d369bb06000338-360-202.jpg",
+                    title:"Vue3.0(正式版) + TS 仿知乎专栏企业级项目",
+                    usernum:"25",
+                    lontime:"2",
+                    desc:"覆盖Java程序员不同成长阶段的核心问题与最佳解决方案",
+                    tags:["vue.js","jave"],
+                    hot:1,
+                    recommend:0,
+                    openurl:"http://www.baidu.com"
+                },
+          
             ]
         }
     },
     components: {
-    Banner
+    Banner,classitem
   },
   methods: {
 
@@ -178,10 +217,12 @@ body {
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    padding: 36px 0 38px;
     &.container-recommend,&.container-promote{
         padding-top: 0px;
         padding-bottom: 44px;
+    }
+    &.container-newclass{
+        padding: 36px 0 38px;
     }
     .item{
         height: 90px;

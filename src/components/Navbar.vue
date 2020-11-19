@@ -16,7 +16,7 @@
                              <el-button type="primary" size="small" round disabled>我的课程</el-button>
                         </el-menu-item>
                         <el-menu-item class="fr">
-                            <el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="search"></el-input>
+                            <el-input placeholder="请输入课程" prefix-icon="el-icon-search" v-model="search"></el-input>
                         </el-menu-item>
             </el-menu>
         </el-header>
