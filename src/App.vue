@@ -1,15 +1,18 @@
 <template>
-  <div id='app'>
-      <vNavbar></vNavbar>
+<el-container id='app' direction="vertical">
+    <vNavbar></vNavbar>
     <router-view></router-view>
-  </div>
+    <wfooter>
+    </wfooter>
+</el-container>
 </template>
 
 <script>
-import vNavbar from './components/navbar'
+import vNavbar from './components/navbar';
+import wfooter from './components/wfooter'
 export default {
   components: {
-    vNavbar
+    vNavbar,wfooter
   },
 }
 </script>

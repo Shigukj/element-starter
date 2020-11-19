@@ -1,5 +1,5 @@
 <template>
-     <el-header height="70">
+     <el-header height="70px">
             <el-menu default-active="home" class="el-menu-demo" mode="horizontal" @select="handleSelect" router >
                         <el-menu-item>
                            <el-image style="height: 40px;width: 40px;" :src="logo" fit="fit"></el-image>

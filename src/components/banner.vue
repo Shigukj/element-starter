@@ -1,5 +1,5 @@
 <template>
-    <el-main style="padding: 36px 0px 40px 0px;">
+    <div style="padding: 36px 0px 40px 0px;">
         <el-container class="banner-box">
             <el-aside width="216px" class="banner-box-left">
                 <div  v-for="(item,index) in items" :key=index :class="hovermun === index?'item item-on':'item'"  @mouseenter="munhover(index)" @mouseleave="munout()">
@@ -31,7 +31,7 @@
                 </el-carousel>
             </el-main>
         </el-container>
-    </el-main>
+    </div>
 </template>
 <script>
 export default {
